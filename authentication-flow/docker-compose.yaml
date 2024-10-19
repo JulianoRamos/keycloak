@@ -10,3 +10,9 @@ services:
       - .:/home/node/app
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
+    networks:
+      - node_net
+      
+networks:
+  node_net:
+    external: true

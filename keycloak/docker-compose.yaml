@@ -16,6 +16,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      - node_net
 
   db:
     platform: linux/x86_64
@@ -32,3 +34,9 @@ services:
       interval: 10s
       timeout: 10s
       retries: 3
+    networks:
+      - node_net
+
+networks:
+  node_net:
+    external: true
